@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset | U&ME Workshop 2025</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="U&ME Workshop Logo" width="100">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="benchmark.html">Benchmark</a></li>
+                <li><a href="dataset.html">Dataset</a></li>
+                <li><a href="evaluation.html">Evaluation</a></li>
+                <li><a href="organizers.html">Organizers</a></li>
+                <li><a href="cfp.html">Call for Papers</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="overview">
+            <h2>Dataset for Evaluation</h2>
+            <p>The dataset for the benchmark competition will be provided in CSV format and includes two main components:</p>
+            <h3>CSV 1: Columns of Each Row</h3>
+            <ul>
+                <li><strong>Concept Name:</strong> The target concept to unlearn.</li>
+                <li><strong>Concept Type:</strong> Object, human identity, artistic style, synthetic, SPW content, copyright content.</li>
+                <li><strong>Easy Prompt:</strong> "An image of <concept>" x 10.</li>
+                <li><strong>Medium Engineered/Retracting Prompt:</strong> Prompts indirectly referring to the target concept for red-teaming, multi-concept prompts.</li>
+                <li><strong>Hard Adversarial Prompt:</strong> Adversarially learned prompts for red-teaming (e.g., Ring-a-Bell) x 5.</li>
+            </ul>
+            <h3>CSV 2: Target Concepts</h3>
+            <ul>
+                <li><strong>Concept Name:</strong> The target concept to unlearn.</li>
+                <li><strong>Locality Concepts:</strong> List of similar unlearned concepts.</li>
+                <li><strong>Locality Prompts:</strong> Prompts containing unlearned concepts x 10.</li>
+                <li><strong>Adjacency Concepts:</strong> List of neighboring concepts mined through concept lattice.</li>
+                <li><strong>Adjacency Prompts:</strong> Prompts containing neighboring concepts x 10.</li>
+            </ul>
+            <p>The dataset will be available for download soon. Check back for updates!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 U&ME Workshop. All rights reserved.</p>
+        <p>Contact: <a href="mailto:info@uandme-workshop.org">info@uandme-workshop.org</a></p>
+        <p>Follow us on <a href="https://x.com">X</a> for updates.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
