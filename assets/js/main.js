@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('data-theme', currentTheme);
 
     themeToggle.addEventListener('click', () => {
-        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'ligh';
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
