@@ -28,7 +28,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
 
 .logo img {
@@ -107,9 +107,13 @@ nav {
     background-position: center;
     color: #fff;
     text-align: center;
-    padding: 5rem 2rem;
+    padding: 5rem 1.5rem;
     position: relative;
     overflow: hidden;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero::before {
@@ -139,7 +143,7 @@ nav {
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s ease 0.3s forwards;
@@ -174,7 +178,7 @@ nav {
 .overview {
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s ease forwards;
@@ -214,27 +218,33 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        padding: 0.5rem 1rem;
+    }
+
+    .logo {
+        flex: 1;
+    }
+
     .hamburger {
         display: flex;
+        margin-left: auto;
     }
 
     .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
+        display: none;
         width: 100%;
         background: #1a2a44;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         padding: 1rem 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     .nav-links.active {
-        max-height: 400px;
+        display: flex;
     }
 
     .nav-links li a {
@@ -243,14 +253,20 @@ footer a:hover {
 
     .hero {
         padding: 3rem 1rem;
+        min-height: 50vh;
     }
 
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .hero p {
         font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 
     .overview {
@@ -268,7 +284,7 @@ footer a:hover {
     }
 
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .hero p {
@@ -277,6 +293,14 @@ footer a:hover {
 
     .cta-button {
         padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .overview h2 {
+        font-size: 1.3rem;
+    }
+
+    .overview p {
         font-size: 0.9rem;
     }
 }
