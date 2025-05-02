@@ -9,6 +9,7 @@ body {
     line-height: 1.6;
     color: #e0e0e0;
     background: #121212;
+    overflow-x: hidden;
 }
 
 header {
@@ -18,6 +19,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 nav {
@@ -29,44 +31,118 @@ nav {
     padding: 0 2rem;
 }
 
-nav ul {
+.logo img {
+    max-width: 100px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    background: #e0e0e0;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-links {
     list-style: none;
     display: flex;
     gap: 1.5rem;
 }
 
-nav ul li a {
+.nav-links li a {
     color: #e0e0e0;
     text-decoration: none;
     font-weight: 400;
-    transition: color 0.3s;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #00aaff;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.nav-links li a:hover {
     color: #00aaff;
 }
 
-.logo img {
-    max-width: 100px;
-}
-
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg.jpg');
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 170, 255, 0.2)), url('../img/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     color: #fff;
     text-align: center;
     padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 170, 255, 0.1), transparent);
+    animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease 0.3s forwards;
 }
 
 .cta-button {
@@ -76,17 +152,32 @@ nav ul li a:hover {
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
-    transition: background 0.3s;
+    display: inline-block;
+    transition: transform 0.3s ease, background 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease 0.6s forwards;
 }
 
 .cta-button:hover {
     background: #0088cc;
+    transform: translateY(-3px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .overview {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 .overview h2 {
@@ -110,6 +201,7 @@ footer {
     text-align: center;
     padding: 2rem;
     margin-top: 2rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
 
 footer a {
@@ -122,18 +214,69 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        text-align: center;
+    .hamburger {
+        display: flex;
     }
 
-    nav ul {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #1a2a44;
         flex-direction: column;
+        align-items: center;
         gap: 1rem;
-        margin-top: 1rem;
+        padding: 1rem 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-links.active {
+        max-height: 400px;
+    }
+
+    .nav-links li a {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        padding: 3rem 1rem;
     }
 
     .hero h1 {
         font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .overview {
+        padding: 0 1rem;
+    }
+
+    .overview h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        max-width: 80px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 }
