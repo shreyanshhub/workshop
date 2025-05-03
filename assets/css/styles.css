@@ -151,8 +151,14 @@ nav {
 }
 
 .hero {
+    /* Temporarily use a direct Unsplash URL to test */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516321318429-614138f97625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
     
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/hero-bg.jpg');
+    /* Original path (commented out for testing) */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/hero-bg.jpg'); */
+    
+    /* Alternative absolute path for GitHub Pages (commented out) */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/workshop/assets/img/hero-bg.jpg'); */
     
     background-size: cover;
     background-position: center;
