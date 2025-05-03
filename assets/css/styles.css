@@ -54,12 +54,19 @@ nav {
     padding: 0 1.5rem;
 }
 
-.logo img {
-    max-width: 100px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img {
+    max-width: 80px;
+    height: auto;
     transition: transform 0.3s ease;
 }
 
-.logo img:hover {
+.logo-img:hover {
     transform: scale(1.05);
 }
 
@@ -307,6 +314,11 @@ footer a:hover {
 
     .logo {
         flex: 1;
+        gap: 0.5rem;
+    }
+
+    .logo-img {
+        max-width: 60px;
     }
 
     .theme-toggle {
@@ -366,8 +378,8 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-    .logo img {
-        max-width: 80px;
+    .logo-img {
+        max-width: 50px;
     }
 
     .hero h1 {
