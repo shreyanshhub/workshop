@@ -9,11 +9,19 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Existing style for reducing button size on large screens */
         @media (min-width: 1024px) {
             .cta-button {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
             }
+        }
+
+        /* Override hero background with external image */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.ibb.co/4RVD9qBN/hero-bg.png');
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
@@ -47,7 +55,7 @@
     <main>
         <section class="hero">
             <h1>Unlearning and Model Editing (U&ME) Workshop 2025</h1>
-            <p>Genμ Challenge 2025</p>
+            <p>Advancing Privacy and Ethics in AI</p>
             <p>Co-located with ICCV 2025, Paris, France</p>
             <a href="register.html" class="cta-button">Register Now</a>
         </section>
